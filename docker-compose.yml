@@ -1,0 +1,22 @@
+version: '1.2'
+
+services:
+  postgres_data:
+    image: postgres:13.3
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "dw_uniesp", "-U" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=dw_uniesp
+      - APP_DB_USER=docker
+      - APP_DB_PASS=docker
+      - APP_DB_NAME=docker
+    volumes:
+      - /tmp/database:/var/lib/postgresql_uniesp/data
+    ports:
+      - 5432:5432
