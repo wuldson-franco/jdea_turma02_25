@@ -1,22 +1,66 @@
-version: '1.2'
+version: '3.8'
 
 services:
-  postgres_data:
-    image: postgres:13.3
-    healthcheck:
-      test: [ "CMD", "pg_isready", "-q", "-d", "dw_uniesp", "-U" ]
-      timeout: 45s
-      interval: 10s
-      retries: 10
-    restart: always
+  minio:
+    image: minio/minio
+    container_name: minio
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=dw_uniesp
-      - APP_DB_USER=docker
-      - APP_DB_PASS=docker
-      - APP_DB_NAME=docker
-    volumes:
-      - /tmp/database:/var/lib/postgresql_uniesp/data
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minio@1234!
     ports:
-      - 5432:5432
+      - "9000:9000"
+      - "9001:9001"
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+  
+  minio_mc:
+    image: minio/mc
+    container_name: minio_mc
+    depends_on:
+      - minio
+    entrypoint: |
+      sh -c "
+      sleep 10 &&
+      mc alias set myminio http://minio:9000 minioadmin minio@1234! &&
+      mc mb myminio/raw
+      "
+  postgres-airflow:
+    image: postgres:16
+    container_name: postgres-airflow
+    environment:
+      POSTGRES_USER: post_airflow
+      POSTGRES_PASSWORD: airflow_123
+      POSTGRES_DB: airflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      
+  airflow:
+    build:
+      context: .
+      dockerfile: airflow/config_airflow/airflow.Dockerfile
+    container_name: airflow
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://post_airflow:airflow_123@postgres-airflow:5432/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+      AIRFLOW__CORE__LOGGING_LEVEL: INFO
+      MINIO_ENDPOINT: http://minio:9000
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minio@1234!
+    depends_on:
+      - postgres-airflow
+      - minio
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/config_airflow:/opt/airflow/config_airflow
+    command: ['airflow', 'standalone']
+
+volumes:
+  minio_data:
+  postgres_data:
