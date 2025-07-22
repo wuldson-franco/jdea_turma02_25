@@ -19,25 +19,24 @@ def google_sheet_to_minio_etl(sheet_id, sheet_name, bucket_name, endpoint_url, a
         aws_access_key_id=access_key,
         aws_secret_access_key=secret_key
     )
-
+    # Configuração de leitura e escrita da planilha do google.
     def get_google_sheet_data(sheet_id, sheet_name):
         try:
             scope = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
             creds = Credentials.from_service_account_file('/opt/airflow/config_airflow/credentials.json', scopes=scope)
             client = gspread.authorize(creds)
             sheet = client.open_by_key(sheet_id).worksheet(sheet_name)
-# Segunda parte Leitura dos dados
             try:
                 data = sheet.get_all_records()
             except gspread.exceptions.GSpreadException as e:
                 if 'A linha de cabeçalho na planilha não é única.' in str(e):
                     logging.warning(f"Erro ao usar get_all_records() (cabeçalhos duplicados): {e}")
                     expected_headers = {
-                        'Clientes_Bike': ["ClienteID", "Cliente", "Estado", "Sexo", "Status"],
-                        'Vendedores_Bike': ["VendedorID", "Vendedor"],
-                        'Produtos_Bike': ["ProdutoID", "Produto", "Preco"],
-                        'Vendas_Bike': ["VendasID", "VendedorID", "ClienteID", "Data", "Total"],
-                        'ItensVendas_Bike': ["ProdutoID", "VendasID", "Quantidade", "ValorUnitario", "ValorTotal", "Desconto", "TotalComDesconto"]
+                        'Clientes': ["ClienteID", "Cliente", "Estado", "Sexo", "Status"],
+                        'Vendedores': ["VendedorID", "Vendedor"],
+                        'Produtos': ["ProdutoID", "Produto", "Preco"],
+                        'Vendas': ["VendasID", "VendedorID", "ClienteID", "Data", "Total"],
+                        'ItensVendas': ["ProdutoID", "VendasID", "Quantidade", "ValorUnitario", "ValorTotal", "Desconto", "TotalComDesconto"]
                     }.get(sheet_name, None)
                     if expected_headers:
                         data = sheet.get_all_records(expected_headers=expected_headers)
@@ -52,7 +51,7 @@ def google_sheet_to_minio_etl(sheet_id, sheet_name, bucket_name, endpoint_url, a
             logging.error(f"Erro ao obter dados da planilha do Google: {e}")
             raise
 
-# Escrita dos dados
+# Escrita dos dados no minio
     try:
         df = get_google_sheet_data(sheet_id, sheet_name)
         parquet_buffer = io.BytesIO()
@@ -63,6 +62,7 @@ def google_sheet_to_minio_etl(sheet_id, sheet_name, bucket_name, endpoint_url, a
         logging.error(f"Erro ao processar a planilha {sheet_name}: {e}")
         raise
     
+    #-- ESSA PARTE ABAIXO NÃO FOI FEITA AINDA EM SALA DE AULA, ESTOU DEIXANDO AQUI PARA QUEM QUISER TENTAR
     # Conectar ao MariaDB e escrever os dados
     mysql_hook = MySqlHook(mysql_conn_id='mariadb_local')
     connection = mysql_hook.get_conn()
