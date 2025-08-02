@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # primeira parte - Acesso API(conexão)
-def google_sheet_to_minio_etl(sheet_id, sheet_name, bucket_name, endpoint_url, access_key, secret_key):
+def google_sheet_to_minio_etl(sheet_id, sheet_name, bucket_bronze, endpoint_url, access_key, secret_key):
     # Configuração do cliente MinIO
     minio_client = boto3.client(
         's3',
@@ -57,7 +57,7 @@ def google_sheet_to_minio_etl(sheet_id, sheet_name, bucket_name, endpoint_url, a
         parquet_buffer = io.BytesIO()
         df.to_parquet(parquet_buffer, index=False)
         parquet_buffer.seek(0)
-        minio_client.put_object(Bucket=bucket_name, Key=f"{sheet_name}/data.parquet", Body=parquet_buffer.getvalue())
+        minio_client.put_object(Bucket=bucket_bronze, Key=f"{sheet_name}/data.parquet", Body=parquet_buffer.getvalue())
     except Exception as e:
         logging.error(f"Erro ao processar a planilha {sheet_name}: {e}")
         raise

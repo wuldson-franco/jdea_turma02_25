@@ -23,7 +23,8 @@ services:
       sh -c "
       sleep 10 &&
       mc alias set myminio http://minio:9000 minioadmin minio@1234! &&
-      mc mb myminio/raw
+      mc mb myminio/raw &&
+      mc mb myminio/silver
       "
   postgres-airflow:
     image: postgres:16
