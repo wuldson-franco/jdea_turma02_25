@@ -5,8 +5,8 @@ from airflow.utils.dates import days_ago
 from airflow.utils.task_group import TaskGroup
 from datetime import timedelta
 
-from tasks.extracao_g_sheets_dk import google_sheet_to_minio_etl
-from tasks.transform_g_sheets_dk import process_silver_layer
+from bd_ronaldinho.task.extracao_g_sheets_dk import google_sheet_to_minio_etl
+from bd_ronaldinho.task.transform_g_sheets_dk import process_silver_layer
 
 # Argumentos iniciais.
 default_args = {

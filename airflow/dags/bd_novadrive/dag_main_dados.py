@@ -5,7 +5,7 @@ from airflow.utils.dates import days_ago
 from airflow.utils.task_group import TaskGroup
 from datetime import timedelta
 
-from tasks_dados.extracao_bd_full import postgres_to_minio_etl_parquet_full
+from bd_novadrive.task.extracao_bd_full import postgres_to_minio_etl_parquet_full
 
 # Argumentos iniciais.
 default_args = {
