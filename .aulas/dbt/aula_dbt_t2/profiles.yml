@@ -1,0 +1,12 @@
+aula_dbt_t2:
+  outputs:
+    dev:
+      dbname: postgres
+      host: localhost
+      pass: postgres
+      port: 5432
+      schema: ''
+      threads: 1
+      type: postgres
+      user: postgres
+  target: dev

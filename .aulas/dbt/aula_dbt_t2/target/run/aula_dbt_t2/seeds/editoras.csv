@@ -1,0 +1,14 @@
+
+    
+    
+    
+    create table "postgres"."_staging"."editoras" ("editora_id" integer,"nome_editora" text,"endereco" text,"telefone" text,"email" text)
+  ;
+    -- dbt seed --
+    
+          insert into "postgres"."_staging"."editoras" ("editora_id", "nome_editora", "endereco", "telefone", "email") values
+          (%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s)
+      
+
+;
+  

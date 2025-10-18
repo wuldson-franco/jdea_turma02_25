@@ -1,0 +1,201 @@
+livro_id,titulo,autor_id,editora_id,ano_publicacao,isbn,categoria,status
+1,Livro 1,9,9,1962,9331074091594,Fantasia,emprestado
+2,Livro 2,28,17,1985,2352143041837,Ficção,disponível
+3,Livro 3,36,10,1963,0299754893571,Fantasia,disponível
+4,Livro 4,71,20,1965,3929926244335,Romance,emprestado
+5,Livro 5,49,5,1978,4026939723942,Romance,emprestado
+6,Livro 6,13,6,2013,3269270874293,Fantasia,disponível
+7,Livro 7,25,8,1970,3864756884502,Ficção,disponível
+8,Livro 8,37,16,1970,3468024895357,Ficção,disponível
+9,Livro 9,97,11,1998,5666003725174,Romance,emprestado
+10,Livro 10,15,14,1968,4099903777596,Mistério,disponível
+11,Livro 11,55,19,2012,0659746612524,Ficção,disponível
+12,Livro 12,83,4,2010,4748590717472,Não Ficção,disponível
+13,Livro 13,17,8,1955,1475016253702,Biografia,disponível
+14,Livro 14,40,17,1972,6322457211147,História,disponível
+15,Livro 15,39,12,1987,3163857276625,Mistério,emprestado
+16,Livro 16,17,15,1953,1214209279592,Biografia,emprestado
+17,Livro 17,54,9,1999,1895514928247,Mistério,emprestado
+18,Livro 18,49,18,1988,5390763982691,Ficção,emprestado
+19,Livro 19,30,6,2020,7665660768273,Biografia,emprestado
+20,Livro 20,24,8,1968,7888175201584,Romance,disponível
+21,Livro 21,45,4,2017,6303874864166,Mistério,disponível
+22,Livro 22,95,6,2014,5141706064170,Biografia,emprestado
+23,Livro 23,78,8,2002,1572246901656,Ficção,disponível
+24,Livro 24,34,13,1966,7157827870338,Ficção,emprestado
+25,Livro 25,79,7,1966,5279150941422,Fantasia,emprestado
+26,Livro 26,82,19,1995,0035107953475,Romance,emprestado
+27,Livro 27,83,8,1987,9505329461568,Não Ficção,disponível
+28,Livro 28,67,16,1963,8966418395722,Fantasia,emprestado
+29,Livro 29,75,3,1978,8067544342187,Biografia,disponível
+30,Livro 30,95,7,2010,3109137406758,Biografia,emprestado
+31,Livro 31,57,2,1996,6130910545438,Biografia,disponível
+32,Livro 32,41,8,1964,6684621988423,Romance,disponível
+33,Livro 33,96,4,1988,3654871461150,Não Ficção,emprestado
+34,Livro 34,14,5,1970,9116647277383,Mistério,disponível
+35,Livro 35,70,3,2010,2477148502079,Romance,emprestado
+36,Livro 36,94,11,1994,9847523853953,Ficção,disponível
+37,Livro 37,44,9,1969,9204030263957,História,emprestado
+38,Livro 38,88,15,1979,4829933750584,Não Ficção,disponível
+39,Livro 39,2,14,1976,4691883123979,Mistério,disponível
+40,Livro 40,22,20,1983,6719407910480,História,emprestado
+41,Livro 41,96,6,1978,5577126164688,Fantasia,emprestado
+42,Livro 42,77,8,1954,8163492438842,Fantasia,emprestado
+43,Livro 43,70,16,2018,5374287841689,História,disponível
+44,Livro 44,42,15,1985,1059696759006,Romance,disponível
+45,Livro 45,30,14,2018,1194804051896,Não Ficção,emprestado
+46,Livro 46,65,8,2003,3606925218809,Mistério,disponível
+47,Livro 47,84,10,2013,5327894717296,Mistério,emprestado
+48,Livro 48,14,4,1986,3316579182395,Romance,emprestado
+49,Livro 49,19,3,2003,3224841729691,Não Ficção,disponível
+50,Livro 50,43,10,1953,8109875163444,Mistério,emprestado
+51,Livro 51,14,15,1968,3924794372875,História,emprestado
+52,Livro 52,46,1,1993,5640975853901,História,disponível
+53,Livro 53,68,13,1990,3971934229242,Romance,emprestado
+54,Livro 54,2,10,1992,6272952156579,Fantasia,emprestado
+55,Livro 55,95,5,2016,8886715991266,Biografia,disponível
+56,Livro 56,64,3,1973,6385271397537,Mistério,disponível
+57,Livro 57,85,16,2011,4302404805105,História,emprestado
+58,Livro 58,30,7,1971,9044790815919,Romance,emprestado
+59,Livro 59,48,16,1999,5163287926634,Romance,disponível
+60,Livro 60,96,18,1992,2275337288849,Ficção,disponível
+61,Livro 61,22,4,1963,0775954120088,Fantasia,emprestado
+62,Livro 62,5,11,2016,4127665555747,História,disponível
+63,Livro 63,49,12,2009,6016981104112,Biografia,emprestado
+64,Livro 64,74,11,1998,9039074275581,Não Ficção,emprestado
+65,Livro 65,46,2,2003,8075344732121,Biografia,emprestado
+66,Livro 66,6,5,1998,1689182281131,Romance,emprestado
+67,Livro 67,70,12,1985,5271760825807,Ficção,disponível
+68,Livro 68,19,8,1990,0016217462710,Não Ficção,emprestado
+69,Livro 69,32,14,1952,3286456167549,História,disponível
+70,Livro 70,15,10,1997,1589196926288,Fantasia,emprestado
+71,Livro 71,86,13,1980,1089035070520,Mistério,emprestado
+72,Livro 72,5,13,1974,0829484287950,Romance,emprestado
+73,Livro 73,73,12,2010,2582138416667,Romance,disponível
+74,Livro 74,84,20,2008,9646956991468,Não Ficção,emprestado
+75,Livro 75,70,12,1984,0956264503727,História,emprestado
+76,Livro 76,36,3,1967,7486837169981,História,disponível
+77,Livro 77,47,15,1970,1550595515420,Biografia,disponível
+78,Livro 78,5,11,2017,2460919719187,Mistério,disponível
+79,Livro 79,87,17,1951,5502002670987,História,disponível
+80,Livro 80,20,16,2001,0699497360383,Não Ficção,disponível
+81,Livro 81,91,10,2001,5158880847865,Não Ficção,emprestado
+82,Livro 82,85,16,2013,4683839442760,Romance,emprestado
+83,Livro 83,89,6,2020,3046471415995,Ficção,emprestado
+84,Livro 84,24,7,1986,4306412419767,Fantasia,disponível
+85,Livro 85,46,12,2014,3152722140365,Romance,emprestado
+86,Livro 86,98,16,1960,2226217117212,Fantasia,disponível
+87,Livro 87,35,15,1963,2764524230036,Não Ficção,emprestado
+88,Livro 88,72,14,2003,8874728661413,Ficção,disponível
+89,Livro 89,65,16,1952,4505597448778,Romance,emprestado
+90,Livro 90,19,13,1967,0175438376353,Romance,emprestado
+91,Livro 91,68,16,1984,2001668127907,História,emprestado
+92,Livro 92,56,5,1978,9905036900032,História,emprestado
+93,Livro 93,15,3,1989,8080661984355,Ficção,emprestado
+94,Livro 94,94,5,1953,1940759079844,Não Ficção,emprestado
+95,Livro 95,82,12,1984,0595486095033,Mistério,disponível
+96,Livro 96,4,13,1996,4516932523034,Não Ficção,emprestado
+97,Livro 97,12,8,2009,4283264562258,História,disponível
+98,Livro 98,9,10,1972,2049761506092,Romance,emprestado
+99,Livro 99,43,18,2000,3372967046406,Biografia,emprestado
+100,Livro 100,16,19,1980,4113368669305,Romance,emprestado
+101,Livro 101,55,2,2007,5793001774721,Biografia,disponível
+102,Livro 102,48,15,1978,4427572505219,Ficção,disponível
+103,Livro 103,67,3,1963,5225408750991,Mistério,emprestado
+104,Livro 104,19,1,1980,2448824695991,Biografia,emprestado
+105,Livro 105,3,18,1973,3171270252959,Fantasia,emprestado
+106,Livro 106,3,7,1994,2390477878583,Biografia,disponível
+107,Livro 107,96,1,1973,9581732116333,Fantasia,emprestado
+108,Livro 108,52,10,1999,8482901423404,História,disponível
+109,Livro 109,17,13,1971,9795617411825,Biografia,emprestado
+110,Livro 110,79,9,2009,3304523115679,Biografia,emprestado
+111,Livro 111,26,14,2005,7834696332381,Ficção,disponível
+112,Livro 112,73,12,1987,2929674906988,Não Ficção,disponível
+113,Livro 113,91,5,2016,6502564869821,Biografia,emprestado
+114,Livro 114,34,6,1971,8792747045490,Romance,emprestado
+115,Livro 115,95,12,1950,4117434760613,Romance,emprestado
+116,Livro 116,96,19,2020,3111422329208,Mistério,disponível
+117,Livro 117,7,7,2019,5271834610972,Romance,emprestado
+118,Livro 118,69,3,1952,1628137150038,Biografia,disponível
+119,Livro 119,53,19,2013,1699348577262,Ficção,emprestado
+120,Livro 120,29,6,2012,2702844906944,Romance,emprestado
+121,Livro 121,13,3,1966,9990242911638,Mistério,disponível
+122,Livro 122,95,7,2007,8148524210909,Ficção,emprestado
+123,Livro 123,100,11,2002,4621206291498,Ficção,disponível
+124,Livro 124,60,19,1966,0046303648265,Biografia,emprestado
+125,Livro 125,96,14,2013,8933266602055,Romance,disponível
+126,Livro 126,78,17,2000,8375439051014,Fantasia,disponível
+127,Livro 127,74,19,2008,0000516183105,Romance,emprestado
+128,Livro 128,44,13,2008,7488632360876,Fantasia,emprestado
+129,Livro 129,84,19,2012,3928729213051,Mistério,emprestado
+130,Livro 130,35,14,1980,3564055906328,História,disponível
+131,Livro 131,36,7,1999,2502823015933,Ficção,emprestado
+132,Livro 132,91,6,2007,5979273821720,Fantasia,disponível
+133,Livro 133,89,2,2007,5265445808497,Fantasia,disponível
+134,Livro 134,81,14,1990,7973090228219,História,disponível
+135,Livro 135,60,7,2014,6706643391055,Romance,disponível
+136,Livro 136,46,15,2003,8790411227514,Ficção,disponível
+137,Livro 137,77,2,2008,8363235729004,Ficção,disponível
+138,Livro 138,20,15,2001,0741947696516,Ficção,disponível
+139,Livro 139,72,15,1954,0526854747893,Romance,emprestado
+140,Livro 140,66,7,2018,3131676843621,Mistério,disponível
+141,Livro 141,91,11,2014,2572926130488,Fantasia,disponível
+142,Livro 142,84,4,1981,1124522401828,Fantasia,emprestado
+143,Livro 143,13,10,1980,0401982573880,Romance,disponível
+144,Livro 144,88,17,1989,4897709097820,História,emprestado
+145,Livro 145,8,19,2017,3235251543851,Ficção,emprestado
+146,Livro 146,91,11,1982,9611372079794,Romance,emprestado
+147,Livro 147,85,20,2006,2369566497903,Romance,emprestado
+148,Livro 148,79,4,1957,1029226436090,Mistério,emprestado
+149,Livro 149,35,9,2019,4188394207941,História,emprestado
+150,Livro 150,51,12,1963,0975335118802,Biografia,emprestado
+151,Livro 151,27,6,1999,5957811548922,História,emprestado
+152,Livro 152,27,13,2001,3590380602321,Romance,emprestado
+153,Livro 153,70,9,1986,8093389235683,Fantasia,disponível
+154,Livro 154,82,7,1982,2012329815791,Romance,disponível
+155,Livro 155,26,20,1976,0624154628879,Biografia,emprestado
+156,Livro 156,83,6,1979,2181133010254,Mistério,disponível
+157,Livro 157,62,3,1991,8322950794475,Não Ficção,disponível
+158,Livro 158,12,2,1960,2794894621494,Mistério,emprestado
+159,Livro 159,12,14,1975,4820482528568,Romance,emprestado
+160,Livro 160,20,11,2002,8597081185935,Fantasia,disponível
+161,Livro 161,17,6,1995,0985425038186,Fantasia,disponível
+162,Livro 162,64,12,1955,5056635188886,Mistério,disponível
+163,Livro 163,70,12,2008,2148216374468,Não Ficção,emprestado
+164,Livro 164,77,10,1986,6680200574916,História,disponível
+165,Livro 165,2,18,1964,8368006003005,Não Ficção,disponível
+166,Livro 166,78,1,1997,2944084091107,Fantasia,disponível
+167,Livro 167,53,15,1992,0792413229907,História,emprestado
+168,Livro 168,58,6,1971,7310960627986,Romance,disponível
+169,Livro 169,64,10,1975,7616141472137,Romance,emprestado
+170,Livro 170,28,2,2016,1207078472800,Biografia,disponível
+171,Livro 171,41,15,2011,8094390432603,Não Ficção,disponível
+172,Livro 172,64,14,1959,3972042501350,Não Ficção,emprestado
+173,Livro 173,14,4,1956,5138030494763,Romance,emprestado
+174,Livro 174,77,8,2001,6198775377926,Não Ficção,emprestado
+175,Livro 175,51,17,1991,4065296246980,Biografia,disponível
+176,Livro 176,78,18,1970,2337507392061,Não Ficção,emprestado
+177,Livro 177,76,14,2009,0444887137961,Ficção,emprestado
+178,Livro 178,98,1,1996,0430245183775,Romance,disponível
+179,Livro 179,15,13,1953,2349704669906,Romance,emprestado
+180,Livro 180,88,7,1975,0794635718744,Mistério,disponível
+181,Livro 181,62,20,1993,7810131487013,Ficção,emprestado
+182,Livro 182,88,19,1982,2107164354381,Não Ficção,disponível
+183,Livro 183,49,7,1983,8127900857037,Ficção,disponível
+184,Livro 184,39,12,1991,3331950592051,Mistério,emprestado
+185,Livro 185,57,4,1980,2161658073480,Não Ficção,disponível
+186,Livro 186,45,8,1993,5618537021028,Fantasia,emprestado
+187,Livro 187,76,20,1974,9437656014451,Ficção,disponível
+188,Livro 188,26,9,1953,8207469418676,Romance,emprestado
+189,Livro 189,23,10,1985,5450362821309,Mistério,emprestado
+190,Livro 190,83,17,2020,4730728841978,Ficção,disponível
+191,Livro 191,73,20,1953,4128364257090,Fantasia,emprestado
+192,Livro 192,25,5,1988,2027407201899,Ficção,disponível
+193,Livro 193,76,2,2000,3081926423942,Não Ficção,disponível
+194,Livro 194,9,11,1958,7986685078584,Biografia,disponível
+195,Livro 195,14,7,1960,9621911127053,Biografia,emprestado
+196,Livro 196,48,8,1975,2694533136725,História,disponível
+197,Livro 197,32,14,1981,0251976476218,Mistério,disponível
+198,Livro 198,41,1,1971,0004093113287,Ficção,emprestado
+199,Livro 199,24,15,1953,4236071321420,Biografia,emprestado
+200,Livro 200,33,16,1972,6260925062759,Romance,emprestado

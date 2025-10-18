@@ -1,0 +1,29 @@
+
+version: 2
+
+models:
+  - name: pessoa
+    description: "Tabela para os dados da entidade pessoa"
+    columns:
+      - name: id
+        description: "Chave primaria da tabela pessoa"
+        data_tests:
+          - unique
+          - not_null
+      - name: nome
+        description: "Nome pessoa"
+        data_tests:
+          - not_null
+      - name: cidade
+        description: "Cidade da pessoa"
+      - name: estado
+        description: "Estado da pessoa"
+
+  - name: my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null

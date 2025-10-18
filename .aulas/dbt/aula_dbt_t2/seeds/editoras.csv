@@ -1,0 +1,21 @@
+editora_id,nome_editora,endereco,telefone,email
+1,Editora A,"Alameda E, 202",+55 11 5432-2057,contato@editoraA.com
+2,Editora B,"Alameda E, 202",+55 11 3142-4717,contato@editoraB.com
+3,Editora C,"Avenida B, 456",+55 11 2854-8274,contato@editoraC.com
+4,Editora D,"Alameda E, 202",+55 11 5850-6693,contato@editoraD.com
+5,Editora E,"Alameda E, 202",+55 11 9438-8844,contato@editoraE.com
+6,Editora F,"Rua A, 123",+55 11 6667-2167,contato@editoraF.com
+7,Editora G,"Praça D, 101",+55 11 3572-5243,contato@editoraG.com
+8,Editora H,"Alameda E, 202",+55 11 3119-4021,contato@editoraH.com
+9,Editora I,"Avenida B, 456",+55 11 8866-4610,contato@editoraI.com
+10,Editora J,"Praça D, 101",+55 11 6445-4882,contato@editoraJ.com
+11,Editora K,"Alameda E, 202",+55 11 2953-8303,contato@editoraK.com
+12,Editora L,"Alameda E, 202",+55 11 6719-4284,contato@editoraL.com
+13,Editora M,"Praça D, 101",+55 11 8557-2507,contato@editoraM.com
+14,Editora N,"Rua A, 123",+55 11 5925-6345,contato@editoraN.com
+15,Editora O,"Rua A, 123",+55 11 8212-6500,contato@editoraO.com
+16,Editora P,"Rua A, 123",+55 11 2255-5913,contato@editoraP.com
+17,Editora Q,"Rua A, 123",+55 11 5795-9482,contato@editoraQ.com
+18,Editora R,"Praça D, 101",+55 11 6298-8778,contato@editoraR.com
+19,Editora S,"Travessa C, 789",+55 11 4533-3970,contato@editoraS.com
+20,Editora T,"Travessa C, 789",+55 11 9932-1773,contato@editoraT.com

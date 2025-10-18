@@ -1,0 +1,27 @@
+
+version: 2
+
+models:
+  - name: livros_emprestimo
+    description: "Tabela trazendo as informações da dos liros mais emprestados"
+    columns:
+      - name: livro_id
+        description: "Chave primaria da tabela livro"
+        data_tests:
+          - unique
+          - not_null
+      - name: titulo
+        description: "Titulo do Livro"
+        data_tests:
+          - not_null
+      - name: total_emprestimos
+        description: "Total dos livros emprestados"
+
+  - name: my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
