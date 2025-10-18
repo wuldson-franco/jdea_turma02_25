@@ -24,10 +24,10 @@ default_args = {
 @dag(
     dag_id='dag_main',
     default_args=default_args,
-    description='Dag curso JDEA',
+    description='Dag curso JDEA - Dados BikeRonaldinho',
     schedule_interval=timedelta(days=1),
     catchup=False,
-    tags=['extração','transformação', 'etl', 'raw'],
+    tags=['BikeRonaldinho', 'extração', 'transformação', 'etl', 'raw'],
 )
 
 

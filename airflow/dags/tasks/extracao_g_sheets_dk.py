@@ -1,16 +1,14 @@
-import gspread # leitura planinhas google
-from google.oauth2.service_account import Credentials # Credenciais  do google 
-import pandas as pd # lib para extração
-import boto3 # minio storage
-import io # armazenar o parquet
-import logging # logs
-from airflow.providers.mysql.hooks.mysql import MySqlHook # conector do postgres / mysql
+import gspread
+from google.oauth2.service_account import Credentials
+import pandas as pd
+import boto3
+import io
+import logging
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# primeira parte - Acesso API(conexão)
 def google_sheet_to_minio_etl(sheet_id, sheet_name, bucket_bronze, endpoint_url, access_key, secret_key):
     # Configuração do cliente MinIO
     minio_client = boto3.client(
@@ -19,7 +17,7 @@ def google_sheet_to_minio_etl(sheet_id, sheet_name, bucket_bronze, endpoint_url,
         aws_access_key_id=access_key,
         aws_secret_access_key=secret_key
     )
-    # Configuração de leitura e escrita da planilha do google.
+    #Configuração de leitura e escrita da planilha do google.
     def get_google_sheet_data(sheet_id, sheet_name):
         try:
             scope = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
@@ -51,7 +49,7 @@ def google_sheet_to_minio_etl(sheet_id, sheet_name, bucket_bronze, endpoint_url,
             logging.error(f"Erro ao obter dados da planilha do Google: {e}")
             raise
 
-# Escrita dos dados no minio
+    # Escrita dos dados no minio
     try:
         df = get_google_sheet_data(sheet_id, sheet_name)
         parquet_buffer = io.BytesIO()
@@ -61,47 +59,3 @@ def google_sheet_to_minio_etl(sheet_id, sheet_name, bucket_bronze, endpoint_url,
     except Exception as e:
         logging.error(f"Erro ao processar a planilha {sheet_name}: {e}")
         raise
-    
-    #-- ESSA PARTE ABAIXO NÃO FOI FEITA AINDA EM SALA DE AULA, ESTOU DEIXANDO AQUI PARA QUEM QUISER TENTAR
-    # Conectar ao MariaDB e escrever os dados
-    mysql_hook = MySqlHook(mysql_conn_id='mariadb_local')
-    connection = mysql_hook.get_conn()
-
-    try:
-        with connection.cursor() as cursor:
-            # Criar a tabela se não existir
-            create_table_sql = f"""
-            CREATE TABLE IF NOT EXISTS {sheet_name} (
-                {', '.join([f'{col} VARCHAR(255)' for col in df.columns])}
-            )
-            """
-            cursor.execute(create_table_sql)
-            logging.info(f"Tabela {sheet_name} verificada/criada no MariaDB")
-
-            # Inserir ou atualizar dados na tabela
-            for index, row in df.iterrows():
-                # Atualizar dados se já existir
-                update_sql = f"""
-                UPDATE {sheet_name}
-                SET {', '.join([f'{col} = %s' for col in df.columns])}
-                WHERE {df.columns[0]} = %s
-                """
-                cursor.execute(update_sql, tuple(row.tolist()) + (row[df.columns[0]],))
-
-                # Inserir novos dados se não existir
-                insert_sql = f"""
-                INSERT IGNORE INTO {sheet_name} ({', '.join(df.columns)})
-                VALUES ({', '.join(['%s'] * len(df.columns))})
-                """
-                cursor.execute(insert_sql, tuple(row))
-
-            connection.commit()
-            logging.info(f"Dados inseridos/atualizados na tabela {sheet_name} no MariaDB")
-
-    except Exception as e:
-        logging.error(f"Erro ao conectar ao MariaDB ou inserir dados: {e}")
-
-    finally:
-        if connection:
-            connection.close()
-    logging.info("Processo ETL concluído com sucesso.")
