@@ -63,12 +63,11 @@ def main_dag():
 
     # TaskGroup: Indicadores Google Sheets para camada Gold (MinIO)
     with TaskGroup("consumer_g_sheets_dk", tooltip="Indicadores da camada Silver para Gold") as consumer_g_sheets_dk:
-        for sheets_name in google_sheets:
-            PythonOperator(
-                task_id=f'consumer_{sheets_name}',
-                python_callable=process_consumer_layer,
-                op_args=[bucket_silver, bucket_gold, endpoint_url, access_key, secret_key]
-            )
+        PythonOperator(
+            task_id='indicadores_vendas',
+            python_callable=process_consumer_layer,
+            op_args=[bucket_silver, bucket_gold, endpoint_url, access_key, secret_key]
+        )
     # Fluxo de dependência
     extracao_g_sheets_dk >> transform_g_sheets_dk >> consumer_g_sheets_dk
 
