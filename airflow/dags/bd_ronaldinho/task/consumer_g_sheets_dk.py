@@ -32,7 +32,7 @@ def generate_indicators(df_vendas, df_itens, df_produtos, df_clientes):
     logger.info("Gerando indicadores de consumo...")
 
     df_merge = df_itens.merge(df_produtos, on="produtoid", how="left") \
-                       .merge(df_vendas, on="vendaid", how="left") \
+                       .merge(df_vendas, on="vendasid", how="left") \
                        .merge(df_clientes, on="clienteid", how="left")
 
     # Produto mais vendido

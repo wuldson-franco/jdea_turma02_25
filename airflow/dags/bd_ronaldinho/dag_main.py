@@ -7,6 +7,7 @@ from datetime import timedelta
 
 from bd_ronaldinho.task.extracao_g_sheets_dk import google_sheet_to_minio_etl
 from bd_ronaldinho.task.transform_g_sheets_dk import process_silver_layer
+from bd_ronaldinho.task.consumer_g_sheets_dk import process_consumer_layer
 
 # Argumentos iniciais.
 default_args = {
@@ -41,6 +42,7 @@ def main_dag():
     sheet_id = '1XMrFMPptCKfy6u2tsP0FuAgPlbJ-anA0caH2e6LL5F0'
     bucket_bronze = 'raw'
     bucket_silver = 'silver'
+    bucket_gold = 'gold'
 
      # TaskGroup: Extração do Google Sheets para camada Bronze (MinIO)
     with TaskGroup("extracao_g_sheets_dk", tooltip="Tasks processadas do google sheets para minio, salvando em .parquet") as extracao_g_sheets_dk:
@@ -50,7 +52,7 @@ def main_dag():
                 python_callable=google_sheet_to_minio_etl,
                 op_args=[sheet_id, sheets_name, bucket_bronze, endpoint_url, access_key, secret_key]
             )
-
+     # TaskGroup: Transformação Google Sheets para camada Silver (MinIO)
     with TaskGroup("transform_g_sheets_dk", tooltip="Transformação da camada Bronze para Silver") as transform_g_sheets_dk:
         for sheets_name in google_sheets:
             PythonOperator(
@@ -59,8 +61,16 @@ def main_dag():
                 op_args=[bucket_bronze, bucket_silver, sheets_name, endpoint_url, access_key, secret_key]
             )
 
+    # TaskGroup: Indicadores Google Sheets para camada Gold (MinIO)
+    with TaskGroup("consumer_g_sheets_dk", tooltip="Indicadores da camada Silver para Gold") as consumer_g_sheets_dk:
+        for sheets_name in google_sheets:
+            PythonOperator(
+                task_id=f'consumer_{sheets_name}',
+                python_callable=process_consumer_layer,
+                op_args=[bucket_silver, bucket_gold, endpoint_url, access_key, secret_key]
+            )
     # Fluxo de dependência
-    extracao_g_sheets_dk >> transform_g_sheets_dk
+    extracao_g_sheets_dk >> transform_g_sheets_dk >> consumer_g_sheets_dk
 
 
 main_dag_instance = main_dag()
